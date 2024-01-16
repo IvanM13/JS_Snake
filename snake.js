@@ -10,7 +10,8 @@ class Snake {
         this.nextDirection = "right";
     }
     draw() {
-        for (let i = 0; i < this.segment.length; i++) {
+        for (let i = 1; i < this.segment.length; i++) {
+            this.segment[0].drawSquare('Black');
             this.segment[i].drawSquare("Blue");
         }
     };
