@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1800" height="900"></canvas>
+    <script src='http://code.jquery.com/jquery-3.5.1.min.js'></script>
+    <script src="game.js"></script>
+    <script src="block.js"></script>
+    <script src="apple.js"></script>
+    <script src="snake.js"></script>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const width = canvas.width;
+        const height = canvas.height;
+
+        let snake = new Snake();
+        let apple = new Apple();
+        let game = new Game();
+
+        const intervalId = setInterval(function () {
+            ctx.clearRect(0, 0, width, height);
+            game.drawScore();
+            snake.move();
+            snake.draw();
+            apple.draw();
+            game.drawBorder();
+        }, 60);
+
+        const direction = {
+            37: "left",
+            38: "up",
+            39: "right",
+            40: "down"
+        };
+
+        $("body").keydown(function (event) {
+            let newDirection = direction[event.keyCode];
+            if (newDirection !== undefined) {
+                snake.setDirection(newDirection);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
