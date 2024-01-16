@@ -22,14 +22,19 @@ class Snake {
 
         this.direction = this.nextDirection;
 
-        if (this.direction === "right") {
-            newHead = new Block(head.col + 1, head.row);
-        } else if (this.direction === "down") {
-            newHead = new Block(head.col, head.row + 1);
-        } else if (this.direction === "left") {
-            newHead = new Block(head.col - 1, head.row);
-        } else if (this.direction === "up") {
-            newHead = new Block(head.col, head.row - 1);
+        switch (this.direction) {
+            case "right":
+                newHead = new Block(head.col + 1, head.row);
+                break;
+            case "down":
+                newHead = new Block(head.col, head.row + 1);
+                break;
+            case "left":
+                newHead = new Block(head.col - 1, head.row);
+                break;
+            case "up":
+                newHead = new Block(head.col, head.row - 1);
+                break;
         }
 
         if (this.checkCollision(newHead)) {
