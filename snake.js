@@ -11,7 +11,7 @@ class Snake {
     }
     draw() {
         for (let i = 1; i < this.segment.length; i++) {
-            this.segment[0].drawSquare('Black');
+            this.segment[0].drawSquare('black');
             this.segment[i].drawSquare("Blue");
         }
     };
