@@ -24,15 +24,30 @@
         let snake = new Snake();
         let apple = new Apple();
         let game = new Game();
+        let animationTime = 180;
 
-        const intervalId = setInterval(function () {
+        const gameLoop = function() {
             ctx.clearRect(0, 0, width, height);
             game.drawScore();
             snake.move();
             snake.draw();
             apple.draw();
             game.drawBorder();
-        }, 60);
+            setTimeout(gameLoop, animationTime);
+        }
+        gameLoop();
+        
+
+        // const intervalId = setInterval(function () {
+        //     ctx.clearRect(0, 0, width, height);
+        //     game.drawScore();
+        //     snake.move();
+        //     snake.draw();
+        //     apple.draw();
+        //     game.drawBorder();
+            
+        // }, game.checkSpeed());
+
 
         const direction = {
             37: "left",

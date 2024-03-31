@@ -44,6 +44,9 @@ class Snake {
         this.segment.unshift(newHead);
         if (newHead.equal(apple.position)) {
             game.score++;
+            if(game.score === 3){
+                animationTime = 60;
+            }
             apple.move();
 
         } else {
@@ -51,6 +54,7 @@ class Snake {
         }
     };
 
+    
     checkCollision(head) {
         let leftCollision = (head.col === 0);
         let topCollision = (head.row === 0);
@@ -81,6 +85,7 @@ class Snake {
         } else if (this.direction === "left" && newDirection === "right") {
             return;
         }
+
 
         this.nextDirection = newDirection;
     };

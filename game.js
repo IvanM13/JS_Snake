@@ -3,7 +3,7 @@ class Game {
         this.blockSize = 40;
         this.widthInBlocks = width / this.blockSize;
         this.heightInBlocks = height / this.blockSize;
-        this.score = 0;
+        this.score = 0;  
     }
     drawBorder() {
         ctx.fillStyle = "Gray";
@@ -22,7 +22,7 @@ class Game {
     };
 
     gameOver() {
-        clearInterval(intervalId);
+        clearInterval(gameLoop);
         ctx.font = "60px Courier";
         ctx.fillStyle = "Black";
         ctx.textAlign = "center";
